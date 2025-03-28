@@ -1,0 +1,28 @@
+export interface ContentBlock {
+	id: string;
+	title: string;
+	content: string;
+	type: 'text' | 'html' | 'markdown';
+	tags: string[];
+	isReusable: boolean;
+	createdAt: string;
+	updatedAt: string;
+	publishedAt?: string;
+	metadata: Record<string, any>;
+}
+
+export interface MediaAsset {
+	id: string;
+	title: string;
+	type: 'image' | 'video' | 'document';
+	url: string;
+	thumbnailUrl?: string;
+	size: number;
+	mimeType: string;
+	metadata: Record<string, any>;
+	createdAt: string;
+	updatedAt: string;
+}
+
+export type ContentFormData = Omit<ContentBlock, 'id' | 'createdAt' | 'updatedAt'>;
+export type MediaFormData = Omit<MediaAsset, 'id' | 'createdAt' | 'updatedAt'>;
